@@ -6,15 +6,15 @@ function Bullet(coords, direction ) {
 
     this.speed = 25;
 
-    this.direction = direction;
+    this.dirn = direction;
 
     this.draw = function() {
         ctx.fillRect( this.x, this.y, 5, 5 );
     };
 
     this.move = function() {
-        this.x = this.x + Math.cos(this.direction) * this.speed;
-        this.y = this.y + Math.sin(this.direction) * this.speed;
+        this.x = this.x + Math.cos( this.dirn ) * this.speed;
+        this.y = this.y + Math.sin( this.dirn ) * this.speed;
     };
 
     this.update = function() {

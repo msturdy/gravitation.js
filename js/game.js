@@ -9,21 +9,20 @@ var Game = {
         this.ctx = ctx;
         console.log('Game started');
 
-        this.ships.push(new Ship(this.ctx, {x: 50, y:150}));
-        this.ships.push(new Ship(this.ctx, {x: 250, y:350}));
-        this.ships.push(new Ship(this.ctx, {x: 450, y:400}));
+        this.ships.push( new Ship({x: 50, y:150}, this.ctx) );
+        this.ships.push( new Ship({x: 250, y:350}, this.ctx) );
+        this.ships.push( new Ship({x: 450, y:400}, this.ctx) );
 
         console.log('Ships added');
-        
         console.log(this.ships);
 
         return this;
     },
 
-    draw: function() {
+    update: function() {
 
-        var game  = window.game,
-            ships = game.ships,
+        var game    = window.game,
+            ships   = game.ships,
             bullets = game.bullets;
 
         // clear canvas
@@ -45,7 +44,7 @@ var Game = {
             }
         });
 
-        window.requestAnimationFrame(game.draw);
+        window.requestAnimationFrame(game.update);
 
     }
 
