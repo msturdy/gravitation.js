@@ -15,14 +15,14 @@ function Ship(start_coords, ctx) {
 
     this.draw = function() {
 
-        var x1 = this.x + 25 * Math.cos(this.dirn),
-            y1 = this.y + 25 * Math.sin(this.dirn),
+        var x1 = this.x + 15 * Math.cos(this.dirn),
+            y1 = this.y + 15 * Math.sin(this.dirn),
 
-            x2 = this.x + 10 * Math.cos(this.dirn + Math.PI*(9/16)),
-            y2 = this.y + 10 * Math.sin(this.dirn + Math.PI*(9/16)),
+            x2 = this.x + 8 * Math.cos(this.dirn + Math.PI*(9/16)),
+            y2 = this.y + 8 * Math.sin(this.dirn + Math.PI*(9/16)),
 
-            x3 = this.x + 10 * Math.cos(this.dirn - Math.PI*(9/16)),
-            y3 = this.y + 10 * Math.sin(this.dirn - Math.PI*(9/16));
+            x3 = this.x + 8 * Math.cos(this.dirn - Math.PI*(9/16)),
+            y3 = this.y + 8 * Math.sin(this.dirn - Math.PI*(9/16));
 
 
         ctx.beginPath();
@@ -31,7 +31,6 @@ function Ship(start_coords, ctx) {
         ctx.lineTo( x2, y2 );
         ctx.lineTo( x3, y3 );
         ctx.lineTo( x1, y1 );
-        // ctx.lineTo( this.x, this.y );
 
         ctx.stroke();
         // ctx.fill();
@@ -62,7 +61,7 @@ function Ship(start_coords, ctx) {
         this.draw();
 
         if (Math.random() > 0.99) {
-            // this.fire();
+            this.fire();
         }
     };
 }
