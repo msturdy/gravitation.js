@@ -9,7 +9,7 @@ module.exports = function(grunt) {
       },
       my_target: {
         files: {
-          'public/js/app.min.js': ['js/assets/*', 'js/game.js', 'js/app.js']
+          'public/js/app.min.js': ['js/assets/*', 'js/input.js', 'js/game.js', 'js/app.js']
         }
       }
     },

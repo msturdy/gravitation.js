@@ -4,14 +4,26 @@ var Game = {
 
     ships: [],
     bullets: [],
+    events: [],
 
     init: function(ctx) {
         this.ctx = ctx;
         console.log('Game started');
 
-        this.ships.push( new Ship({x: 50, y:150}, this.ctx) );
-        this.ships.push( new Ship({x: 250, y:350}, this.ctx) );
-        this.ships.push( new Ship({x: 450, y:400}, this.ctx) );
+        // set up event handlers for keyboard input
+        Input.setup();
+
+        // randomly located ship
+        this.ships.push( new Ship({
+            x: Math.floor(Math.random()*(ctx.canvas.width -50 - 50) + 50), 
+            y: Math.floor(Math.random()*(ctx.canvas.height -50 - 50) + 50)
+        }, this.ctx) );
+
+        // this.ships.push( new Ship({x: 50, y:150}, this.ctx) );
+        // this.ships.push( new Ship({x: 250, y:350}, this.ctx) );
+        // this.ships.push( new Ship({x: 450, y:400}, this.ctx) );
+        // this.ships.push( new Ship({x: 150, y:30}, this.ctx) );
+        // this.ships.push( new Ship({x: 500, y:450}, this.ctx) );
 
         console.log('Ships added');
         console.log(this.ships);
@@ -21,18 +33,18 @@ var Game = {
 
     update: function() {
 
-        var game    = window.game,
-            ships   = game.ships,
-            bullets = game.bullets;
+        var game    = window.game;
+
+        Input.handle();
 
         // clear canvas
         this.ctx.clearRect(0, 0, 750, 500);
 
-        ships.forEach(function(ship) {
+        game.ships.forEach(function(ship) {
             ship.update();
         });
 
-        bullets.forEach(function(bullet, i) {
+        game.bullets.forEach(function(bullet, i) {
             bullet.update();
 
             // delete bullets once gone off canvas

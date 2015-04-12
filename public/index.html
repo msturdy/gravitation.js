@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
-    <link rel="stylesheet" href="/css/style.css">
+  <title></title>
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <canvas id="canvas" width="750" height="500"></canvas>  
-    <script src="/js/app.min.js"></script>
+  
+  <div class="stats">
+    <p>
+      <a href="/"><button>restart</button></a>
+      (<span id="ship-x"></span>, <span id="ship-y"></span>) travelling at <span id="ship-speed"></span>
+    </p>
+  </div>
+
+  <canvas id="canvas" width="750" height="500"></canvas>  
+  <script src="/js/app.min.js"></script>
 </body>
 </html>
